@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Girlfriend?</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(#f8cdda, #fce4ec);
+    font-family: Arial, sans-serif;
+}
+
+.box {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+img {
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+h2 {
+    color: #ff69b4;
+    margin: 15px 0;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+button {
+    border: none;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#yes {
+    background: #4CAF50;
+    color: white;
+    font-size: 18px;
+}
+
+#no {
+    background: #e74c3c;
+    color: white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box" id="card">
+    <img id="cat" src="images/foto1.png">
+    <h2>Will you be my girlfriend?</h2>
+
+    <div class="buttons">
+        <button id="yes">Yes</button>
+        <button id="no">No</button>
+    </div>
+</div>
+
+<script>
+const images = [
+    "images/foto1.png",
+    "images/foto2.png",
+    "images/foto3.png",
+    "images/foto4.png"
+];
+
+const noTexts = [
+    "Don't do this to me :(",
+    "Pookie please",
+    "I'm gonna cry...",
+    "You're breaking my heart"
+];
+
+let i = 0;
+
+document.getElementById("no").onclick = () => {
+    document.getElementById("cat").src = images[i % images.length];
+    document.getElementById("no").innerText = noTexts[i % noTexts.length];
+
+    let yes = document.getElementById("yes");
+    yes.style.fontSize = (18 + i * 6) + "px";
+
+    i++;
+};
+
+document.getElementById("yes").onclick = () => {
+    document.getElementById("card").innerHTML = `
+        <img src="images/yay.png">
+        <h2>YAYYYY 💖</h2>
+        <p style="color:#ff69b4;">
+            Guess I have a girlfriend now 🥹
+        </p>
+    `;
+};
+</script>
+
+</body>
+</html>
